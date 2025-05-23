@@ -63,3 +63,24 @@
     padding: 50px;
     border: 5px solid red;
 }
+
+.parent{
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    /* position: static; */
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.child{
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+    /* position: relative; */
+    /* position: absolute; */
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}

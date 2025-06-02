@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+.btn{
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.btn-primary{
+    background-color: #231A36;
+}
+
+.btn-secondary{
+    background-color: rgba(255, 255, 255,0.2);
+}
+
+.sec-heading{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sec-heading h2{
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+main{
+    background: url("../img/banner/bg.png") no-repeat center;
+    background-size: cover;
+}
+
+header{
+    padding: 20px 0px;
+}
+
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-wrapper nav{
+    display: flex;
+    gap: 25px;
+}
+
+.header-wrapper nav a{
+    color: #ffffff;
+}
+
+/* Banner */
+
+.banner{
+    padding: 100px 0px;
+}
+
+.banner-wrapper {
+    text-align: center;
+    color:#ffffff;
+}
+
+.banner-wrapper h1{
+    font-size: 94px;
+    margin-bottom: 30px;
+}
+
+.banner-wrapper p{
+    margin-bottom: 50px;
+}
+
+/* clients */
+
+.clients{
+    padding: 100px 0px;
+}
+
+.clients h5{
+    margin-bottom: 50px;
+    color: #B2B7BE;
+    text-align: center;
+
+}
+
+.clients-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* solutions */
+
+.solutions{
+    padding: 100px 0px;
+}
+
+.solutions-wrapper{
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+.solutions-wrapper > div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.solutions-wrapper > div > div:nth-child(1),
+.solutions-wrapper > div > div:nth-child(2){
+    width: 50%;
+}
+
+.solutions-wrapper > div:nth-child(1) > div:nth-child(2),
+.solutions-wrapper > div:nth-child(3) > div:nth-child(2){
+    text-align: right;
+}
+
+.solutions-wrapper > div > div > span{
+    color: #FBBA33;
+    text-transform: uppercase;
+}
+
+.solutions-wrapper h3{
+    margin: 12px 0px 17px 0px;
+}
+
+.solutions-wrapper p{
+    margin-bottom: 20px;
+}
+
+.solutions-wrapper a{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.solutions-wrapper > div:nth-child(2){
+    flex-direction: row-reverse;
+}

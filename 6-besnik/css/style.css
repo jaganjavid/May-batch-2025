@@ -18,6 +18,7 @@ a{
 .container{
     max-width: 1200px;
     margin: 0px auto;
+    padding: 0px 15px;
 }
 
 .btn{
@@ -42,6 +43,14 @@ a{
 .sec-heading h2{
     margin-bottom: 20px;
     font-size: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.sec-heading img{
+    position: absolute;
+    top: -45px;
+    left: -40px;
 }
 
 main{
@@ -155,4 +164,192 @@ header{
 
 .solutions-wrapper > div:nth-child(2){
     flex-direction: row-reverse;
+}
+
+/* search */
+
+.search{
+    padding: 100px 0px;
+    color: #ffffff;
+    background-color: #231A36;
+}
+
+.search-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.search-wrapper > div{
+    text-align: center;
+}
+
+.search-wrapper h3{
+    font-size: 40px;
+}
+
+.search-wrapper span{
+    color: #7B9292;
+}
+
+/* need */
+
+.need{
+    padding: 100px 0px 150px 0px;
+}
+
+.need-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.need-wrapper > div{
+    position: relative;
+}
+
+.need-wrapper > div > img{
+    width: 100%;
+}
+
+.need-wrapper > div > div{
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    position: absolute;
+    bottom: -60px;
+    left: 0px;
+}
+
+.need-wrapper > div > div > div{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.need-wrapper h6{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.need-wrapper h5{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.need-wrapper > div > div > div span{
+    font-size: 10px;
+    color: #ADADBA;
+}
+
+.need-wrapper a{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.need-wrapper span{
+    color: #B33CDB;
+}
+
+/* happy */
+.happy{
+    padding: 100px 0px;
+}
+
+.happy-wrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.happy-wrapper > div{
+    width: 50%;
+}
+
+.happy-wrapper p{
+    font-size: 22px;
+    margin: 25px 0px;
+    font-style:italic;
+    color: #6D6D6D;
+}
+
+.happy-wrapper h4{
+    font-size: 25px;
+    font-weight:500;
+    margin-bottom: 3px;
+}
+
+.happy-wrapper > div:nth-child(2){
+   text-align: center;
+}
+
+/* subscribe */
+
+.subscribe{
+    padding: 100px 0px;
+}
+
+.subscribe-wrapper{
+    padding: 80px 50px;
+    text-align: center;
+    background: url("../img//subscribe/bg.png") no-repeat center;
+    background-size: cover;
+    color: #ffffff;
+    border-radius: 25px;
+}
+
+.subscribe-wrapper h2{
+    font-size: 40px;
+}
+
+.subscribe-wrapper p{
+    margin: 30px 0px;
+}
+
+.subscribe .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+}
+
+/* footer */
+
+footer{
+    padding: 50px 0px;
+}
+
+footer img{
+    filter: invert(1);
+}
+
+.footer-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.footer-wrapper nav{
+    display: flex;
+    gap: 15px;
+}
+
+.footer-wrapper nav a{
+    color: #333333;
+}
+
+.footer-wrapper div{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.copyright{
+    text-align: center;
+    font-size: 11px;
+    color: #959595;
+    margin-top: 15px;
 }

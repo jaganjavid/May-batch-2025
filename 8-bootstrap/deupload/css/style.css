@@ -9,6 +9,16 @@ a{
     display: inline-block;
 }
 
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0px;
+}
+
+ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
 .my-btn{
     padding: 12px 18px;
     border-radius: 15px;
@@ -127,6 +137,78 @@ header{
 .decentralized .green{
   color: #34D399;
 }
+
+/* pricing */
+.pricing{
+    padding: 100px 0px;
+    /* background: url("../img/pricing/bg.png") no-repeat center; */
+    /* background-size: cover; */
+    background-image: linear-gradient(180deg, #00E5FF 60%, #ffffff 40%);
+}
+
+.pricing > div > div:nth-child(1){
+    margin-bottom: 100px;
+}
+
+.pricing h5{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.pricing h3{
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.pricing-wrapper ul{
+    display:inline-block;
+}
+
+.pricing-wrapper ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.pricing-wrapper > div > div:nth-child(2) > div > span{
+    padding: 10px 8px;
+    border-radius: 10px;
+}
+
+.pricing-wrapper > div > div:nth-child(2) > div > span:nth-of-type(1){
+    background-color: #ECECFE;
+    color: #651FFF;
+}
+
+.pricing-wrapper > div > div:nth-child(2) > div > span:nth-of-type(2){
+    background-color: #E0F7FA;
+    color: #22D3EE;
+}
+
+.pricing-wrapper > div > div:nth-child(1) > div,
+.pricing-wrapper > div > div:nth-child(2) > div{
+    padding: 60px;
+}
+
+.pricing-wrapper > div > div:nth-child(1) > div{
+    border-radius: 20px;
+}
+
+.pricing-wrapper > div > div:nth-child(2) > div{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: #ffffff;
+}
+
+.pricing-wrapper > div > div:nth-child(1) > div{
+    background-color: #ffffff;
+}
+
+.pricing-wrapper > div > div:nth-child(2) > div{
+    background-color: #651FFF;
+}
+
 
 @media only screen and (min-width: 768px) {
     .line-break{

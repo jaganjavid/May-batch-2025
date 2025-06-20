@@ -196,6 +196,21 @@ header{
     font-size: 18px;
 }
 
+/* works */
+.works{
+    padding: 100px 0px;
+}
+
+.works-wrapper > div > div:not(:last-child) > div{
+    position: relative;
+    margin-bottom: 250px;
+}
+
+/* collection-blogs */
+.collection-blogs{
+    padding: 100px 0px;
+}
+
 @media only screen and (min-width: 992px) {
     .connect-wrapper > div > div:nth-child(1) > div{
         width: 70%;
@@ -206,12 +221,37 @@ header{
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .works-wrapper > div > div:not(:last-child) > div{
+        margin-bottom: 0px !important;
+    }
+    
+    .line{
+        rotate: 0deg;
+        position: absolute;
+        top: 45px;
+        right: -28%;
+        width: 50%;
+    }
+}
+
 
 /* @media only screen and (max-width: 992px) {
     .banner-wrapper > div > div:nth-child(1) > div{
         min-height: 600px;
     }
 } */
+
+@media only screen and (max-width: 768px) {
+    
+    .line{
+        position: absolute;
+        rotate: 90deg;
+        top: 320px;
+        left: 50%;
+        transform: translateY(93px);
+    }
+}
 
 @media only screen and (max-width: 576px) {
     .banner-wrapper > div > div:nth-child(2){

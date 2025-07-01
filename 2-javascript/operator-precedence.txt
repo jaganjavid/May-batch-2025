@@ -1,0 +1,91 @@
+🧠 JavaScript Operator Precedence & Practice Tasks
+==================================================
+
+This guide explains how operator precedence works in JavaScript and provides step-by-step practice tasks from beginner to advanced levels.
+
+🔢 Operator Precedence Table (Highest to Lowest)
+------------------------------------------------
+| Precedence | Operator(s)                         | Description                      | Associativity     |
+|------------|--------------------------------------|----------------------------------|-------------------|
+| 21         | ()                                   | Grouping                         | —                 |
+| 20         | ., [], ()                            | Member access, call              | Left-to-right     |
+| 19         | new (with args)                      | Constructor                      | Right-to-left     |
+| 18         | ++, -- (postfix)                     | Post-increment/decrement         | —                 |
+| 17         | !, ~, +, -, typeof, delete, ++, --   | Unary                            | Right-to-left     |
+| 16         | **                                   | Exponentiation                   | Right-to-left     |
+| 15         | *, /, %                              | Multiplication, Division         | Left-to-right     |
+| 14         | +, -                                 | Addition, Subtraction            | Left-to-right     |
+| 13         | <<, >>, >>>                          | Bitwise shifts                   | Left-to-right     |
+| 12         | <, <=, >, >=, in, instanceof         | Comparisons                      | Left-to-right     |
+| 11         | ==, !=, ===, !==                     | Equality                         | Left-to-right     |
+| 10         | &                                    | Bitwise AND                      | Left-to-right     |
+| 9          | ^                                    | Bitwise XOR                      | Left-to-right     |
+| 8          | |                                    | Bitwise OR                       | Left-to-right     |
+| 7          | &&                                   | Logical AND                      | Left-to-right     |
+| 6          | ||                                   | Logical OR                       | Left-to-right     |
+| 5          | ??                                   | Nullish coalescing               | Right-to-left     |
+| 4          | ?:                                   | Ternary                          | Right-to-left     |
+| 3          | =, +=, -=, *=, /=, etc.              | Assignment                       | Right-to-left     |
+| 2          | yield, yield*                        | Yield                            | Right-to-left     |
+| 1          | ,                                    | Comma                            | Left-to-right     |
+
+✅ Beginner Tasks
+-----------------
+1. Basic Arithmetic
+   const result = 2 + 3 * 4;
+   console.log(result); // ?
+
+2. Using Grouping
+   const result = (2 + 3) * 4;
+   console.log(result); // ?
+
+3. Post vs Pre Increment
+   let x = 5;
+   console.log(x++); // ?
+   console.log(++x); // ?
+
+4. Chained Assignment
+   let a, b;
+   a = b = 10 + 5;
+   console.log(a, b); // ?
+
+🔁 Intermediate Tasks
+---------------------
+5. Ternary with Precedence
+   const age = 20;
+   const result = age > 18 ? "Adult" : "Minor";
+   console.log(result); // ?
+
+6. Logical Operators with Precedence
+   const isMember = true;
+   const points = 120;
+   const discount = isMember && points > 100;
+   console.log(discount); // ?
+
+7. Bitwise Confusion
+   console.log(5 & 3); // ?
+   console.log(5 | 3); // ?
+
+🚀 Advanced Tasks
+-----------------
+8. Nullish vs OR
+   const val = 0;
+   console.log(val || "fallback");   // ?
+   console.log(val ?? "fallback");   // ?
+
+9. Complex Expression
+   const result = 2 + 3 * (4 ** 2) / 2 - 1;
+   console.log(result); // ?
+
+10. Combine Ternary + Logical + Assignment
+    let isAdmin = true;
+    let access = isAdmin && "granted" || "denied";
+    console.log(access); // ?
+
+📌 Tips
+-------
+- Use () to control precedence manually.
+- Memorize the order up to *, /, +, - and &&, ||, ?? — most common.
+- Debug with small pieces and console logs.
+
+Happy Coding! 💻🔥

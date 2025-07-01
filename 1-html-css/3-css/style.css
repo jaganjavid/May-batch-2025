@@ -1,0 +1,86 @@
+
+#head-blue-id{
+    color: darkblue;
+}
+
+.head-blue{
+    color: blue;
+}
+
+
+
+/* h2{
+    color: blueviolet;
+}
+
+.test-class{
+    color: burlywood;
+}
+
+#test-id{
+    color: tomato;
+} */
+
+.text-color{
+    /* color:#950c8c; */
+    color:rgba(149, 12, 140, 1);
+}
+
+
+.box{
+    border: 5px solid green;
+
+    /* Single  */
+    padding: 50px;
+    /* padding-left: 50px;
+    padding-right: 100px;
+    padding-top: 150px;
+    padding-bottom: 200px; */
+
+    /* Two Params 1st => TOP AND BOTTOM && 2nd => LEFT AND RIGHT*/
+    /* padding: 50px 100px; */
+
+    /* Four Params 1st => TOP 2nd => RIGHT 3rd => BOTTOM 4th => LEFT*/
+    /* padding: 50px 100px 150px 200px; */
+
+    margin: 50px;
+}
+
+.box-1{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    margin-bottom: 10px;
+    padding: 50px;
+}
+
+
+.box-2{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    box-sizing: border-box;
+    padding: 50px;
+    border: 5px solid red;
+}
+
+.parent{
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    /* position: static; */
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.child{
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+    /* position: relative; */
+    /* position: absolute; */
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}

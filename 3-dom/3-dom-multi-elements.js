@@ -59,7 +59,7 @@ const items = document.getElementsByClassName("collection-item"); // HTMLCOLLECT
 // })
 
 
-const listsItems = document.querySelectorAll(".collection-item");
+const listsItems = document.querySelectorAll(".collection-item"); // Nodelist
 
 console.log(listsItems);
 console.log(Array.isArray(listsItems));

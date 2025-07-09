@@ -92,3 +92,45 @@ This document contains a set of **15 practical DOM manipulation tasks** designed
 - Understand the difference between `childNodes` and `children`.
 - Practice using `nodeType` to explore what's inside the DOM.
 
+Event tasks 
+
+✅ Basic Tasks (Easy)
+	1.	Click Counter
+	•	Create a button. Each time it’s clicked, increase a number and show it inside a heading (<h1> or <p>).
+	2.	Background Color Toggle
+	•	Create a button that toggles a CSS class on the <body> to change its background color.
+	3.	Live Input Display
+	•	Use the keyup event to show the live text inside a <p> tag as the user types in an input box.
+	4.	Log Event Type
+	•	Add an event listener to a button that logs the event.type (e.g., click, mouseenter, etc.) when triggered.
+	5.	Mouse Enter Highlight
+	•	Highlight a div background when the mouse enters (mouseenter) and remove it on mouseleave.
+
+⸻
+
+⚙️ Intermediate Tasks
+	1.	Multiple Events on One Button
+	•	Attach both click and dblclick events to a single button and display different messages for each.
+	2.	Custom ForEach Function
+	•	Write your own forEach() function and use it to iterate over an array of fruits and log each one.
+	3.	Dynamic Input Validation
+	•	On keydown, check if the input is empty or contains numbers, and change the border color accordingly.
+	4.	Focus and Blur Effects
+	•	Highlight the input field with a border on focus, and reset it on blur.
+	5.	Cut, Copy, Paste Logger
+	•	Log when the user performs a cut, copy, or paste operation on an input field using respective events.
+
+⸻
+
+🚀 Advanced Tasks
+	1.	Tooltip on Hover
+	•	When hovering over a button (mouseenter), show a tooltip beside it, and hide it on mouseleave.
+	2.	Live Character Counter
+	•	Show how many characters the user has typed inside a textarea using the keyup event.
+	3.	Keyboard Shortcut Detector
+	•	Detect when the user presses Ctrl + Z or Alt + C, and perform specific actions (like changing background).
+	4.	Event Delegation Example
+	•	Create a list of items. Add one event listener to the ul, and when a list item is clicked, show an alert with its text.
+	5.	Toggle Dark Mode
+	•	Create a “Toggle Dark Mode” button that adds/removes a dark mode class from the entire page using classList.toggle().
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskTimer Pro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-4 text-primary">⏰ TaskTimer Pro</h1>
+
+    <form id="taskForm" class="row g-3 mb-4">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="taskName" placeholder="Task Name" required />
+      </div>
+      <div class="col-md-3">
+        <input type="number" class="form-control" id="taskDelay" placeholder="Time in seconds" required />
+      </div>
+      <div class="col-md-3">
+        <select class="form-select" id="taskCategory">
+          <option selected disabled>Category</option>
+          <option>Work</option>
+          <option>Personal</option>
+          <option>Study</option>
+          <option>Urgent</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-success w-100" type="submit">Add Task</button>
+      </div>
+    </form>
+
+    <div class="d-flex justify-content-between mb-3">
+      <input type="text" class="form-control w-50 me-3" id="searchInput" placeholder="Search Tasks...">
+      <div>
+        <button class="btn btn-outline-primary me-2" onclick="sortTasks(true)">Sort 🔼</button>
+        <button class="btn btn-outline-primary" onclick="sortTasks(false)">Sort 🔽</button>
+        <button class="btn btn-outline-dark ms-2" onclick="toggleDarkMode()">🌙</button>
+      </div>
+    </div>
+
+    <ul class="list-group" id="taskList"></ul>
+  </div>
+
+  <script>
+    const taskForm = document.getElementById("taskForm");
+    const taskList = document.getElementById("taskList");
+    const searchInput = document.getElementById("searchInput");
+    const taskCategory = document.getElementById("taskCategory");
+    let tasks = [];
+
+    window.onload = function () {
+      const saved = localStorage.getItem("tasks");
+      if (saved) {
+        tasks = JSON.parse(saved);
+        renderTasks();
+      }
+    };
+
+    function saveTasks() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    taskForm.onsubmit = function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("taskName").value.trim();
+      const delay = parseInt(document.getElementById("taskDelay").value);
+      const category = taskCategory.value;
+
+      const task = {
+        name,
+        delay,
+        category,
+        createdAt: Date.now(),
+        id: Date.now(),
+        completed: false
+      };
+
+      tasks.push(task);
+      saveTasks();
+      renderTasks();
+      showAlertAfter(task);
+      taskForm.reset();
+    };
+
+    function renderTasks(filter = "") {
+      taskList.innerHTML = "";
+      tasks
+        .filter(task => task.name.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(task => {
+          const li = document.createElement("li");
+          li.className = "list-group-item d-flex justify-content-between align-items-center";
+
+          li.innerHTML = `
+            <div>
+              <strong>${task.name}</strong>
+              <br><small>⏱ ${task.delay}s | Category: ${task.category}</small>
+              <br><small>Status: ${task.completed ? '✅ Completed' : '🕒 Pending'}</small>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-success me-2" onclick="markCompleted(${task.id})">Done</button>
+              <button class="btn btn-sm btn-warning me-2" onclick="editTask(${task.id})">Edit</button>
+              <button class="btn btn-sm btn-danger" onclick="deleteTask(${task.id})">Delete</button>
+            </div>
+          `;
+          taskList.appendChild(li);
+        });
+    }
+
+    function deleteTask(id) {
+      tasks = tasks.filter(task => task.id !== id);
+      saveTasks();
+      renderTasks();
+    }
+
+    function editTask(id) {
+      const task = tasks.find(t => t.id === id);
+      document.getElementById("taskName").value = task.name;
+      document.getElementById("taskDelay").value = task.delay;
+      document.getElementById("taskCategory").value = task.category;
+      deleteTask(id);
+    }
+
+    function markCompleted(id) {
+      const task = tasks.find(t => t.id === id);
+      task.completed = true;
+      saveTasks();
+      renderTasks();
+    }
+
+    function sortTasks(asc = true) {
+      tasks.sort((a, b) => asc ? a.delay - b.delay : b.delay - a.delay);
+      renderTasks();
+    }
+
+    searchInput.addEventListener("input", function (e) {
+      renderTasks(e.target.value);
+    });
+
+    function showAlertAfter(task) {
+      (function (t) {
+        setTimeout(() => {
+          if (!t.completed) alert(`⏰ Time to: ${t.name}`);
+        }, t.delay * 1000);
+      })(task);
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("bg-dark");
+      document.body.classList.toggle("text-white");
+      document.querySelectorAll(".list-group-item").forEach(item => item.classList.toggle("bg-dark"));
+    }
+  </script>
+</body>
+</html>

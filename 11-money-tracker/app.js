@@ -22,7 +22,7 @@ const itemCtrl = (function(){
             {id:2, name:"Bike Service", money:5000},
         ],
         totalMoney:0,
-        currnetItem:null
+        currentItem:null
     }
 
     return {
@@ -71,6 +71,42 @@ const itemCtrl = (function(){
 
             return total;
 
+        },
+        getItemByID: function(id){
+            
+            let found = null;
+
+            // Loop through the items
+            data.items.forEach(function(item){
+                if(item.id === id){
+                    found = item;
+                }
+            })
+
+            return found;
+
+        },
+        setCurrentItem: function(item){
+            data.currentItem = item;
+        },
+        getCurrentItem: function(){
+            return data.currentItem;
+        },
+        deleteItem:function(id){
+          
+            // Get IDS
+            const ids = data.items.map(function(item){
+                return item.id;
+            });
+
+            // Get Index 
+            const index = ids.indexOf(id);
+
+            data.items.splice(index, 1);
+
+        },
+        clearAllItems:function(){
+            data.items = [];
         }
     }
 
@@ -150,6 +186,30 @@ const UICrtl = (function(){
         },
         showTotalMoney: function(totalMoney){
             document.querySelector(".total-money").innerText = totalMoney;
+        },
+        addItemToForm:function(){
+            document.querySelector("#item-name").value = itemCtrl.getCurrentItem().name;
+            document.querySelector("#item-money").value = itemCtrl.getCurrentItem().money;
+        },
+        deleteListItem:function(id){
+           
+            const itemID = `#item-${id}`;
+
+            const item = document.querySelector(itemID);
+
+            item.remove();
+
+        },
+        clearItems:function(){
+            // const collection = document.querySelector("#item-list");
+
+            // collection.innerHTML = "";
+
+            let listItems = document.querySelectorAll(".collection-item");
+
+            listItems.forEach(function(li){
+                li.remove();
+            })
         }
     }
 
@@ -169,6 +229,15 @@ const App = (function(){
 
         // Edit icon click
         document.querySelector("#item-list").addEventListener("click", itemEditClick);
+
+        // Delete icon click
+        document.querySelector(".delete-btn").addEventListener("click", itemDeleteSubmit);
+
+        // Clear Item click
+        document.querySelector(".clear-btn").addEventListener("click", itemClearSubmit);
+
+        // Back click
+        document.querySelector(".back-btn").addEventListener("click", backClick);
     }
 
     const itemAddSubmit = function(e){
@@ -183,8 +252,6 @@ const App = (function(){
         if(input.name === "" || input.money === ""){
             alert("Please fill the fields")
         }else{
-            console.log(input);
-
             // Add Item to Array
             const newItem = itemCtrl.addItem(input.name, input.money);
 
@@ -208,11 +275,80 @@ const App = (function(){
     const itemEditClick = function(e){
 
         if(e.target.classList.contains("edit-item")){
+
+            const listID = e.target.parentElement.parentElement.id;
+
+            // Break into array
+            const listArr = listID.split("-");
             
+            // Get the actual ID
+            const id = parseInt(listArr[1]);
+
+            // Get Item
+            const itemToEdit = itemCtrl.getItemByID(id);
+
+            // Set Current Item
+            itemCtrl.setCurrentItem(itemToEdit);
+
+            // Add item to form
+            UICrtl.addItemToForm();
+           
             UICrtl.showEditState();
 
         }
 
+    }
+
+
+    const itemDeleteSubmit = function(){
+
+        // Get the current item
+        const currentItem = itemCtrl.getCurrentItem();
+
+        // Delete from the data structure
+        itemCtrl.deleteItem(currentItem.id);
+
+        // Delete from UI
+        UICrtl.deleteListItem(currentItem.id);
+
+        // Get the Total Money
+        const totalMoney = itemCtrl.getTotalMoney();
+
+        // Update the total money in the ui
+        UICrtl.showTotalMoney(totalMoney);
+
+        // Clear a UI input
+        UICrtl.clearInputState();
+        
+        // Clear the button state
+        UICrtl.clearEditState();
+
+
+    }
+
+
+    const itemClearSubmit = function(e){
+
+        // Clear all from the data structure
+        itemCtrl.clearAllItems();
+
+        // Clear All from UI
+        UICrtl.clearItems();
+
+        // Get the Total Money
+        const totalMoney = itemCtrl.getTotalMoney();
+
+        // Update the total money in the ui
+        UICrtl.showTotalMoney(totalMoney);
+    }
+
+
+
+    const backClick = function(e){
+
+        UICrtl.clearEditState();
+        UICrtl.clearInputState();
+        
     }
 
    
@@ -221,7 +357,7 @@ const App = (function(){
     return {
         start: function(){
 
-             // Clear the button
+            // Clear the button
             UICrtl.clearEditState();
 
             const items = itemCtrl.getItem();
